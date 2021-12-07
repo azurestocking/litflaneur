@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h5>Manage All Planets</h5>
+    <br>
+    <div class="container-fluid p-3">
+        <form action="/search" method="get">
+            <div class="form-inline">
+                <div class="form-group mx-auto">
+                    <input class="form-control" autocomplete="off" name="q" placeholder="Keyword" type="search">
+                    <p>&emsp;&emsp;</p>
+                    <input class="btn btn-primary" type="submit" value="Search">
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="container-fluid p-3">
+        <form action="/manage" method="get">
+            {% for node in nodes %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ node["category"] }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-left">{{ node["name"] }}</h5>
+                        <p class="card-text text-left"><b>{{ node["summary"] }}</b></p>
+                        <p class="card-text text-left">{{ node["content"] }}</p>
+                        <p class="card-text text-left">{{ node["author"] }} {{ node["date"] }} in <i>{{ node["title"] }}</i></p>
+                    </div>
+                    <!-- Delete the node and all links connecting to it-->
+                    <a class="btn btn-primary mx-auto w-auto mb-3" href="/manage/{{ node["name"] }}">Delete</a>
+                </div>
+                <br>
+            {% endfor %}
+        </form>
+    </div>
+
+{% endblock %}
+

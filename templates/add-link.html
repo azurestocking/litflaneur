@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Gravitation
+{% endblock %}
+
+{% block main %}
+    <h5>Link Two Planets</h5>
+    <br>
+    <div class="container-fluid mx-auto p-3">
+        <form action="/add-link" method="post">
+            <div class="form-content">
+                <div class="mb-3 text-left">
+                    <label for="source">Source</label>
+                    <select class="js-example-basic-single form-control" id="source" name="source">
+                        <option disabled>From...</option>
+                        {% for node in nodes %}
+                            <option>{{ node["name"] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3 text-left">
+                    <label for="target">Target</label>
+                    <select class="js-example-basic-single form-control" id="target" name="target">
+                        <option disabled>To...</option>
+                        {% for node in nodes %}
+                            <option>{{ node["name"] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+{% endblock %}

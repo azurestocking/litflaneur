@@ -1,0 +1,47 @@
+#main {
+    width: 50%;
+    margin:auto;
+}
+
+.container-fluid {
+    width: 100%;
+    margin: auto;
+}
+
+.card {
+    width: 50%;
+    margin: auto;
+}
+
+.plain-text {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+.form-content {
+    width: 50%;
+    margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+    #main {
+        width: 80%;
+        margin: auto;
+    }
+
+    .form-content {
+        width: 80%;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    .plain-text {
+        width: 80%;
+        margin: auto;
+        text-align: left;
+    }
+
+}

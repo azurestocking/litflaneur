@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Planet
+{% endblock %}
+
+{% block main %}
+    <h5>Create a New Planet</h5>
+    <br>
+    <div class="container-fluid p-3">
+        <div class="form-content">
+            <form action="/add-node" method="post">
+                <div class="mb-3 text-left">
+                    <label for="name">Name</label>
+                    <input class="form-control" autocomplete="off" id="name" name="name" placeholder="Initials and Index" type="text">
+                </div>
+                <div class="mb-3 text-left">
+                    <label for="summary">Summary</label>
+                    <input class="form-control" autocomplete="off" id="summary" name="summary" placeholder="Brief Introduction" type="text">
+                </div>
+                <div class="mb-3 text-left">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" autocomplete="off" id="content" name ="content" rows="3"></textarea>
+                </div>
+                <div class="mb-3 text-left">
+                    <label for="citation">Citation</label>
+                    <div class="row" id="citation" name="citation">
+                        <div class="col">
+                            <input class="form-control" autocomplete="off" id="author" name="author" placeholder="Last Name of Author" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" autocomplete="off" id="date" name="date" placeholder="Year of Publish" type="text">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" autocomplete="off" id="title" name="title" placeholder="Title" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 text-left">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category">
+                        <option disabled selected>Select...</option>
+                        <option>Claim</option>
+                        <option>Reason</option>
+                        <option>Evidence</option>
+                        <option>Warrant</option>
+                        <option>Response</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
